@@ -11,11 +11,10 @@ $app->post('/api/OutlookMail/getAttachments', function ($request, $response, $ar
         $post_data = $validateRes;
     }
     //forming request to vendor API
-    $folder = isset($post_data['args']['folderId']) ? 'me/MailFolders/' . $post_data['args']['folderId'] . '/messages' : 'me/messages';
-    $query_str = $settings['api_url'] . $folder.'/attachments';
+    $folder =
+    $query_str = $settings['api_url'].'/me/messages/' . $post_data['args']['messageId'].'/attachments';
     $params = [
-        'accessToken' => 'accessToken',
-        '$select' => 'select'
+        'accessToken' => 'accessToken'
     ];
     $result = \Models\ApiRequestFacade::makeRequest($params, $post_data, $query_str);
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);

@@ -14,7 +14,8 @@ $app->post('/api/OutlookMail/moveMessage', function ($request, $response, $args)
     $query_str = $settings['api_url'] . 'me/messages/' . $post_data['args']['messageId'].'/move';
     $params = [
         'accessToken' => 'accessToken',
-        'DestinationId' => 'destinationId'
+        'DestinationId' => 'destinationId',
+        'responseCode'=> '201'
     ];
     $result = \Models\ApiRequestFacade::makeRequest($params, $post_data, $query_str, 'POST', 'json');
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);

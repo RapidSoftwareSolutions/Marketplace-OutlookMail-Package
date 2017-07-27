@@ -11,7 +11,7 @@ $app->post('/api/OutlookMail/createDraftForwardMessage', function ($request, $re
         $post_data = $validateRes;
     }
     //forming request to vendor API
-    $query_str = $settings['api_url'] . 'me/messages/' . $post_data['args']['messageId'] . '/createforward';
+    $query_str = 'https://outlook.office.com/api/beta/me/messages/' . $post_data['args']['messageId'] . '/createforward';
     $params = [
         'accessToken' => 'accessToken',
         'responseCode' => '201',

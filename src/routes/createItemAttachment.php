@@ -11,7 +11,7 @@ $app->post('/api/OutlookMail/createItemAttachment', function ($request, $respons
         $post_data = $validateRes;
     }
     //forming request to vendor API
-    $query_str = $settings['api_url'] . 'me/attachments/' . $post_data['args']['attachmentId'];
+    $query_str = $settings['api_url'] . 'me/messages/'.$post_data['args']['messageId'].'/attachments/';
     $post_data['args']['contentBytes'] = '#Microsoft.OutlookServices.ItemAttachment';
     $params = [
         'accessToken' => 'accessToken',

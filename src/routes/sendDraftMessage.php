@@ -16,7 +16,7 @@ $app->post('/api/OutlookMail/sendDraftMessage', function ($request, $response, $
         'accessToken' => 'accessToken',
         'responseCode' => '202'
     ];
-    $result = \Models\ApiRequestFacade::makeRequest($params, $post_data, $query_str, 'POST', 'json');
+    $result = \Models\ApiRequestFacade::makeRequest($params, $post_data, $query_str, 'POST');
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);
 
 });

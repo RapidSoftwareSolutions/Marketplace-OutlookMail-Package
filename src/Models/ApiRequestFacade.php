@@ -9,7 +9,6 @@ class ApiRequestFacade
 {
     public static function makeRequest($params, $post_data, $query_str, $reqType = 'GET', $paramType = 'query')
     {
-
         $responseCode = isset($params['responseCode']) ? $params['responseCode'] : '200';
         unset($params['responseCode']);
 
@@ -30,7 +29,7 @@ class ApiRequestFacade
             }
 
         } catch (\GuzzleHttp\Exception\ClientException $exception) {
-            $responseBody = $exception->getResponse()->getBody()->getContents();
+            $responseBody = $exception->getResponse()->getReasonPhrase();
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
             $result['contextWrites']['to']['status_msg'] = $responseBody;

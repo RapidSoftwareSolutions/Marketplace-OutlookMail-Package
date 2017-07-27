@@ -11,7 +11,7 @@ $app->post('/api/OutlookMail/createReferenceAttachment', function ($request, $re
         $post_data = $validateRes;
     }
     //forming request to vendor API
-    $query_str = $settings['api_url'] . 'me/attachments/' . $post_data['args']['attachmentId'];
+    $query_str = $settings['api_url'] . 'me/messages/'.$post_data['args']['messageId'].'/attachments/';
     $post_data['args']['contentBytes'] = '#Microsoft.OutlookServices.ReferenceAttachment';
     $params = [
         'accessToken' => 'accessToken',

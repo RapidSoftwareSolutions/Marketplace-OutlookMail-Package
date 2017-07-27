@@ -11,8 +11,7 @@ $app->post('/api/OutlookMail/getSingleAttachment', function ($request, $response
         $post_data = $validateRes;
     }
     //forming request to vendor API
-    $folder = isset($post_data['args']['folderId']) ? 'me/MailFolders/' . $post_data['args']['folderId'] . '/messages' : 'me/messages';
-    $query_str = $settings['api_url'] . $folder.'/attachments/'.$post_data['args']['attachmentId'];
+    $query_str = $settings['api_url'] . '/me/messages/'.$post_data['args']['messageId'].'/attachments/'.$post_data['args']['attachmentId'];
     $params = [
         'accessToken' => 'accessToken',
         '$select' => 'select'
