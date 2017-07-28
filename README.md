@@ -3,13 +3,12 @@
 # OutlookMail Package
 The Outlook Mail API lets you read, create, and send messages and attachments, view and respond to event messages, and manage folders that are secured by Azure Active Directory in Office 365.
 * Domain: [OutlookMail](http://outlook.com)
-* Credentials: 
+* Credentials: clientId, clientSecret
 
 ## How to get credentials: 
 0. Go to [Outlook dev centre](https://developer.microsoft.com/en-us/outlook/)
 1. Register or log in
-2. Create you application to get your apiKey and apiSecret
-
+2. Create you application to get your clientId and clientSecret
 
 ## Custom datatypes: 
  |Datatype|Description|Example
@@ -20,6 +19,16 @@ The Outlook Mail API lets you read, create, and send messages and attachments, v
  |Select|String with predefined values|```sample```
  |Array|Array of objects|```[{"Second name":"123","Age":"12","Photo":"sdf","Draft":"sdfsdf"},{"name":"adi","Second name":"bla","Age":"4","Photo":"asfserwe","Draft":"sdfsdf"}] ```
  
+
+## OutlookMail.getAccessToken
+Get access token
+
+| Field       | Type       | Description
+|-------------|------------|----------
+| clientId    | credentials| Client id received from Microsoft
+| clientSecret| credentials| Client secret received from Microsoft
+| redirectUri | String     | Redirect uri for your application
+| code        | String     | Code provided by user
 
 ## OutlookMail.getMessages
 Get a message collection from the entire mailbox of the signed-in user (including the Deleted Items and Clutter folders).

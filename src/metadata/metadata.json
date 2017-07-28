@@ -14,9 +14,51 @@
   "accounts": {
     "domain": "outlook.com",
     "credentials": [
+      "clientId",
+      "clientSecret"
     ]
   },
   "blocks": [
+    {
+      "name": "getAccessToken",
+      "description": "Get access token",
+      "args": [
+        {
+          "name": "clientId",
+          "type": "credentials",
+          "info": "Client id received from Microsoft",
+          "required": true
+        },
+        {
+          "name": "clientSecret",
+          "type": "credentials",
+          "info": "Client secret received from Microsoft",
+          "required": true
+        },
+        {
+          "name": "redirectUri",
+          "type": "String",
+          "info": "Redirect uri for your application",
+          "required": true
+        },
+        {
+          "name": "code",
+          "type": "String",
+          "info": "Code provided by user",
+          "required": true
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
     {
       "name": "getMessages",
       "description": "Get a message collection from the entire mailbox of the signed-in user (including the Deleted Items and Clutter folders).",

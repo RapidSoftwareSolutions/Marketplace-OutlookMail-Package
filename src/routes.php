@@ -1,5 +1,6 @@
        <?php
        $routes = [
+       'getAccessToken',
        'getSingleMessage',
        'deleteFolder',
        'copyFolder',
