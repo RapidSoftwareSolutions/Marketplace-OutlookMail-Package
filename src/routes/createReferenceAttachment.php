@@ -18,7 +18,14 @@ $app->post('/api/OutlookMail/createReferenceAttachment', function ($request, $re
         'responseCode' => '201',
         '@odata.type' => 'dataType',
         'Name' => 'name',
-        'SourceUrl' => 'sourceUrl'
+        'SourceUrl' => 'sourceUrl',
+        'IsFolder' => 'isFolder',
+        'IsInline' => 'isInline',
+        'Permission'=> 'permission',
+        'PreviewUrl'=> 'previewUrl',
+        'ProviderType'=> 'providerType',
+        'ThumbnailUrl' => 'thumbnailUrl',
+        'ContentType' => 'contentType'
     ];
     $result = \Models\ApiRequestFacade::makeRequest($params, $post_data, $query_str, 'POST', 'json');
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);

@@ -18,7 +18,8 @@ $app->post('/api/OutlookMail/createFileAttachment', function ($request, $respons
         'responseCode' => '201',
         '@odata.type' => 'dataType',
         'Name' => 'name',
-        'ContentBytes' => 'contentBytes'
+        'ContentBytes' => 'contentBytes',
+        'ContentType' => 'contentType'
     ];
     $result = \Models\ApiRequestFacade::makeRequest($params, $post_data, $query_str, 'POST', 'json');
     return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($result);

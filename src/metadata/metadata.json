@@ -886,6 +886,12 @@
           "type": "File",
           "info": "The file to attach",
           "required": true
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "info": "The MIME type of the attachment.",
+          "required": false
         }
       ],
       "callbacks": [
@@ -966,6 +972,63 @@
           "type": "String",
           "info": "URL to get the attachment content.",
           "required": true
+        },
+        {
+          "name": "isFolder",
+          "type": "Boolean",
+          "info": "Specifies whether the attachment is a link to a folder. Must set this to true if SourceUrl is a link to a folder.",
+          "required": false
+        },
+        {
+          "name": "isInline",
+          "type": "Boolean",
+          "info": "true if the attachment is an inline attachment; otherwise, false. ",
+          "required": false
+        },
+        {
+          "name": "permission",
+          "type": "Select",
+          "options": [
+            "Other",
+            "View",
+            "Edit",
+            "AnonymousView",
+            "AnonymousEdit",
+            "OrganizationView",
+            "OrganizationEdit"
+          ],
+          "info": "Specifies the permissions granted for the attachment by the type of provider in providerType.",
+          "required": false
+        },
+        {
+          "name": "previewUrl",
+          "type": "String",
+          "info": "Applies to only a reference attachment of an image - URL to get a preview image.",
+          "required": false
+        },
+        {
+          "name": "providerType",
+          "type": "Select",
+          "options": [
+            "Other",
+            "OneDriveBusiness",
+            "OneDriveConsumer",
+            "Dropbox"
+          ],
+          "info": "The type of provider that supports an attachment of this contentType.",
+          "required": false
+        },
+        {
+          "name": "thumbnailUrl",
+          "type": "String",
+          "info": "Applies to only a reference attachment of an image - URL to get a thumbnail image. ",
+          "required": false
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "info": "The MIME type of the attachment.",
+          "required": false
         }
       ],
       "callbacks": [
