@@ -1,5 +1,7 @@
        <?php
        $routes = [
+       'sendSimpleMessage',
+       'createSimpleDraftMessage',
        'getAccessToken',
        'getSingleMessage',
        'deleteFolder',

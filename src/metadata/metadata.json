@@ -128,6 +128,63 @@
       ]
     },
     {
+      "name": "sendSimpleMessage",
+      "description": "Send a new message.",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "Access token received from Outlook Mail",
+          "required": true
+        },
+        {
+          "name": "subject",
+          "type": "String",
+          "info": "The message subject",
+          "required": true
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "info": "The message contentType",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "info": "The message content",
+          "required": true
+        },
+        {
+          "name": "toRecipients",
+          "type": "List",
+          "structure": {
+            "name": "recipient",
+            "type": "String",
+            "info": "Single recipient email"
+          },
+          "info": "Array of emails of recipients",
+          "required": true
+        },
+        {
+          "name": "savetoSentItems",
+          "type": "Boolean",
+          "info": "Indicates whether to save the message in Sent Items. Default is true.",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    }
+    {
       "name": "createDraftMessage",
       "description": "Create a draft of a new message.",
       "args": [
@@ -141,6 +198,63 @@
           "name": "message",
           "type": "JSON",
           "info": "The message to create.",
+          "required": true
+        },
+        {
+          "name": "folderId",
+          "type": "String",
+          "info": "The folder ID, or the Inbox, Drafts, SentItems, or DeletedItems well-known folder name, if you're getting messages from a specific folder. Specifying AllItems would return all messages from the entire mailbox",
+          "required": false
+        }
+      ],
+      "callbacks": [
+        {
+          "name": "error",
+          "info": "Error"
+        },
+        {
+          "name": "success",
+          "info": "Success"
+        }
+      ]
+    },
+    {
+      "name": "createSimpleDraftMessage",
+      "description": "Create a draft of a new message.",
+      "args": [
+        {
+          "name": "accessToken",
+          "type": "String",
+          "info": "Access token received from Outlook Mail",
+          "required": true
+        },
+        {
+          "name": "subject",
+          "type": "String",
+          "info": "The message subject",
+          "required": true
+        },
+        {
+          "name": "contentType",
+          "type": "String",
+          "info": "The message contentType",
+          "required": true
+        },
+        {
+          "name": "content",
+          "type": "String",
+          "info": "The message content",
+          "required": true
+        },
+        {
+          "name": "toRecipients",
+          "type": "List",
+          "structure": {
+            "name": "recipient",
+            "type": "String",
+            "info": "Single recipient email"
+          },
+          "info": "Array of emails of recipients",
           "required": true
         },
         {
@@ -376,14 +490,14 @@
           "required": false
         },
         {
-          "name": "toRecipients",
+          "name": "recipients",
           "type": "List",
           "structure": {
             "name": "recipient",
-            "type": "JSON",
-            "info": "Single json recipient object"
+            "type": "String",
+            "info": "Single recipient email"
           },
-          "info": "Array ot JSON objects of recipients",
+          "info": "Array of emails of recipients",
           "required": true
         }
       ],
@@ -421,14 +535,14 @@
           "required": false
         },
         {
-          "name": "toRecipients",
+          "name": "recipients",
           "type": "List",
           "structure": {
             "name": "recipient",
-            "type": "JSON",
-            "info": "Single json recipient object"
+            "type": "String",
+            "info": "Single recipient email"
           },
-          "info": "Array ot JSON objects of recipients",
+          "info": "Array of emails of recipients",
           "required": true
         }
       ],
@@ -592,7 +706,10 @@
         {
           "name": "inferenceClassification",
           "type": "Select",
-          "options": ["Focused", "Other"],
+          "options": [
+            "Focused",
+            "Other"
+          ],
           "info": "Inference classification property of the message",
           "required": true
         },
@@ -632,7 +749,7 @@
         },
         {
           "name": "senderEmailAddress",
-          "type": "JSON",
+          "type": "String",
           "info": "The email address of the sender for whom the override is created.",
           "required": true
         },

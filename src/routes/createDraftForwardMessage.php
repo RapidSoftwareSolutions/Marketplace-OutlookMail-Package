@@ -4,7 +4,7 @@ $app->post('/api/OutlookMail/createDraftForwardMessage', function ($request, $re
 
     //checking properly formed json
     $checkRequest = $this->validation;
-    $validateRes = $checkRequest->validate($request, ['accessToken', 'messageId', 'toRecipients']);
+    $validateRes = $checkRequest->validate($request, ['accessToken', 'messageId', 'recipients']);
     if (!empty($validateRes) && isset($validateRes['callback']) && $validateRes['callback'] == 'error') {
         return $response->withHeader('Content-type', 'application/json')->withStatus(200)->withJson($validateRes);
     } else {
@@ -12,6 +12,9 @@ $app->post('/api/OutlookMail/createDraftForwardMessage', function ($request, $re
     }
     //forming request to vendor API
     $query_str = 'https://outlook.office.com/api/beta/me/messages/' . $post_data['args']['messageId'] . '/createforward';
+    foreach ($post_data['args']['recipients'] as $recipient) {
+        $post_data['args']['toRecipients'][]['EmailAddress']['Address'] = $recipient;
+    };
     $params = [
         'accessToken' => 'accessToken',
         'responseCode' => '201',

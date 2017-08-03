@@ -48,6 +48,18 @@ Send the message supplied in the request body
 | message        | JSON   | The message to send.
 | savetoSentItems| Boolean| Indicates whether to save the message in Sent Items. Default is true.
 
+## OutlookMail.sendSimpleMessage
+Send a new message.
+
+| Field      | Type  | Description
+|------------|-------|----------
+| accessToken| String| Access token received from Outlook Mail
+| subject    | String  | The message subject.
+| contentType    | String  | The message contentType.
+| content    | String  | The message content.
+| toRecipients| List  | Array of emails of recipients
+| savetoSentItems| Boolean| Indicates whether to save the message in Sent Items. Default is true.
+
 ## OutlookMail.createDraftMessage
 Create a draft of a new message.
 
@@ -55,6 +67,18 @@ Create a draft of a new message.
 |------------|-------|----------
 | accessToken| String| Access token received from Outlook Mail
 | message    | JSON  | The message to create.
+| folderId   | String| The folder ID, or the Inbox, Drafts, SentItems, or DeletedItems well-known folder name, if you're getting messages from a specific folder. Specifying AllItems would return all messages from the entire mailbox
+
+## OutlookMail.createSimpleDraftMessage
+Create a draft of a new message.
+
+| Field      | Type  | Description
+|------------|-------|----------
+| accessToken| String| Access token received from Outlook Mail
+| subject    | String  | The message subject.
+| contentType    | String  | The message contentType.
+| content    | String  | The message content.
+| toRecipients| List  | Array of emails of recipients
 | folderId   | String| The folder ID, or the Inbox, Drafts, SentItems, or DeletedItems well-known folder name, if you're getting messages from a specific folder. Specifying AllItems would return all messages from the entire mailbox
 
 ## OutlookMail.sendDraftMessage
@@ -117,7 +141,7 @@ Forward a message by using the Forward method and optionally specifying a commen
 | accessToken | String| Access token received from Outlook Mail
 | messageId   | String| The message id to send.
 | comment     | String| A comment to include. Can be an empty string.
-| toRecipients| List  | Array ot JSON objects of recipients
+| recipients| List  | Array of emails of recipients
 
 ## OutlookMail.createDraftForwardMessage
 Create a draft of the Forward message to add a comment or recipients in one CreateForward call. You can then update message properties and send the draft.
@@ -127,7 +151,7 @@ Create a draft of the Forward message to add a comment or recipients in one Crea
 | accessToken | String| Access token received from Outlook Mail
 | messageId   | String| The message id to send.
 | comment     | String| A comment to include. Can be an empty string.
-| toRecipients| List  | Array ot JSON objects of recipients
+| recipients| List  | Array of emails of recipients
 
 ## OutlookMail.updateMessage
 Change writable properties on a draft or existing message. Only the properties that you specify are changed.
@@ -181,7 +205,7 @@ Create an override for a sender identified by an SMTP address. Future messages f
 |-------------------|-------|----------
 | accessToken       | String| Access token received from Outlook Mail
 | classifyAs        | String| Specifies how incoming messages from a specific sender should always be classified as.
-| senderEmailAddress| JSON  | The email address of the sender for whom the override is created.
+| senderEmailAddress| String  | The email address of the sender for whom the override is created.
 | userId            | String| The user's email address.
 
 ## OutlookMail.getAllUserOverrides
@@ -233,6 +257,23 @@ Automatic replies are part of the user's mailbox settings (represented by Mailbo
 | accessToken            | String| Access token received from Outlook Mail
 | automaticRepliesSetting| JSON  | JSON object with new settings
 
+```
+{
+    "@odata.context": "https://outlook.office.com/api/v2.0/$metadata#Me/MailboxSettings",
+    "AutomaticRepliesSetting": {
+        "Status": "Scheduled",
+        "ScheduledStartDateTime": {
+          "DateTime": "2016-03-20T18:00:00.0000000",
+          "TimeZone": "UTC"
+        },
+        "ScheduledEndDateTime": {
+          "DateTime": "2016-03-28T18:00:00.0000000",
+          "TimeZone": "UTC"
+        }
+    }
+}
+```
+
 ## OutlookMail.getAttachments
 You can get an attachment collection.
 
@@ -271,7 +312,7 @@ Add an item attachment to a message.
 | accessToken| String| Access token received from Outlook Mail
 | messageId  | String| The message id.
 | name       | String| The name of the attachment.
-| item       | JSON  | The item to attach.
+| item       | JSON  | The item to attach. Message or Event object - https://msdn.microsoft.com/en-us/office/office365/api/complex-types-for-mail-contacts-calendar#ItemAttachmentResource
 
 ## OutlookMail.createReferenceAttachment
 Add a reference attachment to a message.

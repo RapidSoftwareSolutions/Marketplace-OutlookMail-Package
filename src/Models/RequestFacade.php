@@ -14,6 +14,7 @@ class RequestFacade
                 $body[$key] = $post_data['args'][$value];
             }
         }
+
         $auth = 'Bearer ' . $post_data['args']['accessToken'];
         unset($body['accessToken']);
         $result = $client->request($method, $query_str, [
