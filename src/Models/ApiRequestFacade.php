@@ -22,6 +22,7 @@ class ApiRequestFacade
             if ($resp->getStatusCode() == $responseCode) {
                 $result['callback'] = 'success';
                 $result['contextWrites']['to'] = is_array($all_data) ? $all_data : json_decode($all_data);
+                $result['contextWrites']['to'] = $result['contextWrites']['to'][0]== null ? "completed" : $result['contextWrites']['to'];
             } else {
                 $result['callback'] = 'error';
                 $result['contextWrites']['to']['status_code'] = 'API_ERROR';
@@ -29,7 +30,8 @@ class ApiRequestFacade
             }
 
         } catch (\GuzzleHttp\Exception\ClientException $exception) {
-            $responseBody = $exception->getResponse()->getReasonPhrase();
+            $responseBody = $exception->getResponse()->getBody()->getContents();
+            $responseBody = strlen($responseBody) == 0 ? $exception->getResponse()->getReasonPhrase() : $responseBody;
             $result['callback'] = 'error';
             $result['contextWrites']['to']['status_code'] = 'API_ERROR';
             $result['contextWrites']['to']['status_msg'] = $responseBody;

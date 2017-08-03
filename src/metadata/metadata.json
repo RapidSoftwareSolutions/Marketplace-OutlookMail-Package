@@ -236,7 +236,7 @@
         {
           "name": "comment",
           "type": "String",
-          "info": "A comment to include. Can be an empty string.",
+          "info": "A comment to include",
           "required": true
         }
       ],
@@ -270,7 +270,7 @@
         {
           "name": "comment",
           "type": "String",
-          "info": "A comment to include. Can be an empty string.",
+          "info": "A comment to include",
           "required": true
         }
       ],
@@ -304,7 +304,7 @@
         {
           "name": "comment",
           "type": "String",
-          "info": "A comment to include. Can be an empty string.",
+          "info": "A comment to include.",
           "required": true
         }
       ],
@@ -338,7 +338,7 @@
         {
           "name": "comment",
           "type": "String",
-          "info": "A comment to include. Can be an empty string.",
+          "info": "A comment to include",
           "required": true
         }
       ],
@@ -429,7 +429,7 @@
             "info": "Single json recipient object"
           },
           "info": "Array ot JSON objects of recipients",
-          "required": false
+          "required": true
         }
       ],
       "callbacks": [
@@ -463,7 +463,7 @@
           "name": "message",
           "type": "JSON",
           "info": "Message properties to update",
-          "required": false
+          "required": true
         }
       ],
       "callbacks": [
@@ -591,7 +591,8 @@
         },
         {
           "name": "inferenceClassification",
-          "type": "String",
+          "type": "Select",
+          "options": ["Focused", "Other"],
           "info": "Inference classification property of the message",
           "required": true
         },
@@ -1261,7 +1262,7 @@
         {
           "name": "folderId",
           "type": "String",
-          "info": "The folder ID, or the Inbox, Drafts, SentItems, or DeletedItems well-known folder name, if you're getting messages from a specific folder. Specifying AllItems would return all messages from the entire mailbox",
+          "info": "The folder ID",
           "required": true
         },
         {
@@ -1295,7 +1296,7 @@
         {
           "name": "folderId",
           "type": "String",
-          "info": "The folder ID, or the Inbox, Drafts, SentItems, or DeletedItems well-known folder name, if you're getting messages from a specific folder. Specifying AllItems would return all messages from the entire mailbox",
+          "info": "The folder ID",
           "required": true
         },
         {
@@ -1329,7 +1330,7 @@
         {
           "name": "folderId",
           "type": "String",
-          "info": "The folder ID, or the Inbox, Drafts, SentItems, or DeletedItems well-known folder name, if you're getting messages from a specific folder. Specifying AllItems would return all messages from the entire mailbox",
+          "info": "The folder ID.",
           "required": true
         },
         {
@@ -1363,7 +1364,7 @@
         {
           "name": "folderId",
           "type": "String",
-          "info": "The folder ID, or the Inbox, Drafts, SentItems, or DeletedItems well-known folder name, if you're getting messages from a specific folder. Specifying AllItems would return all messages from the entire mailbox",
+          "info": "The folder ID",
           "required": true
         }
       ],

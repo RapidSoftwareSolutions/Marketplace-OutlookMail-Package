@@ -80,7 +80,7 @@ Reply to the sender of a message by specifying a comment
 |------------|-------|----------
 | accessToken| String| Access token received from Outlook Mail
 | messageId  | String| The message id to send.
-| comment    | String| A comment to include. Can be an empty string.
+| comment    | String| A comment to include
 
 ## OutlookMail.replyToAllRecipients
 Reply to all recipients of a message by specifying a comment
@@ -89,7 +89,7 @@ Reply to all recipients of a message by specifying a comment
 |------------|-------|----------
 | accessToken| String| Access token received from Outlook Mail
 | messageId  | String| The message id to send.
-| comment    | String| A comment to include. Can be an empty string.
+| comment    | String| A comment to include
 
 ## OutlookMail.createDraftReplyMessage
 Create a draft of a reply message to add a comment
@@ -98,7 +98,7 @@ Create a draft of a reply message to add a comment
 |------------|-------|----------
 | accessToken| String| Access token received from Outlook Mail
 | messageId  | String| The message id to send.
-| comment    | String| A comment to include. Can be an empty string.
+| comment    | String| A comment to include
 
 ## OutlookMail.createDraftReplyAllMessage
 Create a draft of a reply-all message to add a comment
@@ -107,7 +107,7 @@ Create a draft of a reply-all message to add a comment
 |------------|-------|----------
 | accessToken| String| Access token received from Outlook Mail
 | messageId  | String| The message id to send.
-| comment    | String| A comment to include. Can be an empty string.
+| comment    | String| A comment to include
 
 ## OutlookMail.createForwardMessage
 Forward a message by using the Forward method and optionally specifying a comment. The message is then saved in the Sent Items folder.
@@ -171,7 +171,7 @@ Change the InferenceClassification property of the specified message.
 |------------------------|-------|----------
 | accessToken            | String| Access token received from Outlook Mail
 | messageId              | String| The message id to send.
-| inferenceClassification| String| Inference classification property of the message
+| inferenceClassification| Select| Inference classification property of the message
 | userId                 | String| The user's email address.
 
 ## OutlookMail.createOverrideForSender
@@ -340,7 +340,7 @@ Change the folder name to that specified in displayName.
 | Field      | Type  | Description
 |------------|-------|----------
 | accessToken| String| Access token received from Outlook Mail
-| folderId   | String| The folder ID, or the Inbox, Drafts, SentItems, or DeletedItems well-known folder name, if you're getting messages from a specific folder. Specifying AllItems would return all messages from the entire mailbox
+| folderId   | String| The folder ID
 | displayName| String| The display name of the folder.
 
 ## OutlookMail.moveFolder
@@ -349,7 +349,7 @@ Move a folder and its contents to another folder
 | Field        | Type  | Description
 |--------------|-------|----------
 | accessToken  | String| Access token received from Outlook Mail
-| folderId     | String| The folder ID, or the Inbox, Drafts, SentItems, or DeletedItems well-known folder name, if you're getting messages from a specific folder. Specifying AllItems would return all messages from the entire mailbox
+| folderId     | String| The folder ID
 | destinationId| String| The destination folder ID, or the Inbox, Drafts, SentItems, or DeletedItems well-known folder name.
 
 ## OutlookMail.copyFolder
@@ -358,7 +358,7 @@ Copy a folder and its contents to another folder
 | Field        | Type  | Description
 |--------------|-------|----------
 | accessToken  | String| Access token received from Outlook Mail
-| folderId     | String| The folder ID, or the Inbox, Drafts, SentItems, or DeletedItems well-known folder name, if you're getting messages from a specific folder. Specifying AllItems would return all messages from the entire mailbox
+| folderId     | String| The folder ID
 | destinationId| String| The destination folder ID, or the Inbox, Drafts, SentItems, or DeletedItems well-known folder name.
 
 ## OutlookMail.deleteFolder
@@ -367,5 +367,5 @@ Delete a folder and its contents
 | Field      | Type  | Description
 |------------|-------|----------
 | accessToken| String| Access token received from Outlook Mail
-| folderId   | String| The folder ID, or the Inbox, Drafts, SentItems, or DeletedItems well-known folder name, if you're getting messages from a specific folder. Specifying AllItems would return all messages from the entire mailbox
+| folderId   | String| The folder ID
 
