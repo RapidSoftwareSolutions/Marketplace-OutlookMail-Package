@@ -183,7 +183,7 @@
           "info": "Success"
         }
       ]
-    }
+    },
     {
       "name": "createDraftMessage",
       "description": "Create a draft of a new message.",
